@@ -1,14 +1,34 @@
 // Write your Character component here
-// Import
+// Dependencies
 import React from "react";
+import styled from "styled-components";
+// Components
+import BoxOfInfo from "./BoxOfInfo";
+
+const CharacterBody = styled.div`
+	max-width: 50%;
+	margin: 0 auto;
+	background-color: #30302f;
+	color: white;
+	border: 5px solid #db882a;
+
+	&:hover {
+		border-color: crimson;
+	}
+`;
+
+const Header = styled.h2`
+	color: royalblue;
+`;
 
 // Create Component
 const Character = (props) => {
 	const { data } = props;
 	return (
-		<div>
-			<h2>{data.name}</h2>
-		</div>
+		<CharacterBody>
+			<Header>{data.name}</Header>
+			<BoxOfInfo info={data} />
+		</CharacterBody>
 	);
 };
 
